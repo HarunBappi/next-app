@@ -14,8 +14,8 @@ export default async function Home() {
           {posts.map((post) => (
             <div key={post.id} className="card bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Card title!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">{post.title}</h2>
+                <p>{post.body}</p>
                 <div className="card-actions justify-end">
                   <Link href={`/Components/${post.id}`}>
                     <button className="btn btn-primary">View Details</button>
