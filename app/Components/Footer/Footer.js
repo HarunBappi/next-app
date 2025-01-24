@@ -1,10 +1,11 @@
+'use Client'
 import Image from 'next/image';
 import footer from '../../../public/logo.png';
 export default function Footer() {
   return (
     <footer className="footer bg-neutral text-neutral-content items-center p-4">
       <aside className="grid-flow-col items-center">
-         <Image src={footer} className="w-20 h-16" alt="logoimage"></Image>
+         <Image src={footer} width={70} height={50} alt="logoimage"></Image>
         <p>Copyright © {new Date().getFullYear()} - All right reserved <span  className='text-orange-600'>HRB</span></p>
       </aside>
       <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

@@ -1,17 +1,21 @@
+'use client'
+
+import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import logo from '../../../public/logo.png';
 export default function Navbar() {
+    const pathName = usePathname()
+    // const {getUser} = getKindeServerSession()
+    // console.log(getUser)
   const navItem = (
     <>
       <li>
-        <Link href="">Home</Link>
+        <Link href="/" className={pathName === '/'? 'font-bold text-white': ""}>Home</Link>
       </li>
       <li>
-        <Link href="">Contact</Link>
-      </li>
-      <li>
-        <Link href="">Profile</Link>
+        <Link href="/profile" className={pathName === '/profile' ?"font-bold text-white" : ""}>Profile</Link>
       </li>
     </>
   );
@@ -43,15 +47,20 @@ export default function Navbar() {
             {navItem}
           </ul>
         </div>
-        <Image src={logo} className="w-20 h-16" alt="logoimage"></Image>
+        <Image src={logo} width={70} height={50} alt="logoimage"></Image>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItem}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex gap-3">
+        <LoginLink>
         <button className="btn">
-          <Link href="">Sign In</Link>
+          Sign In
         </button>
+        </LoginLink>
+        <LogoutLink>
+            <button className="btn">Logout</button>
+        </LogoutLink>
       </div>
     </div>
     </div>
