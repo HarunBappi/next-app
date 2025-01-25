@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 export default function Profile() {
   const { isAuthenticated, isLoading, user } = useKindeAuth();
   const router = useRouter();
-
   if (!isAuthenticated) {
     router.push("/login");
     return null;
